@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Containers | Soluções Completas</title>
+  <title>Santiago Cargas | Agenciamento de Cargas e Locação</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,17 +15,26 @@
 
   <!-- HEADER -->
   <header class="header">
-    <div class="brand">
-      <div class="brand-mark"></div>
-      <div class="brand-text">
-        <strong>CONTAINER</strong>
-        <span>Solutions</span>
-      </div>
-    </div>
+    <a class="brand" href="#topo" aria-label="Santiago Cargas - Início">
+      <!-- Ícone (SVG) estilo “seta em caixa”, corporativo -->
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <rect x="6" y="6" width="52" height="52" rx="14" />
+          <path d="M20 30c0-6 4-10 10-10h14" stroke-width="6" stroke-linecap="round"/>
+          <path d="M38 14l10 10-10 10" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M44 34c0 6-4 10-10 10H20" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </span>
 
-    <nav class="nav">
+      <span class="brand-text">
+        <strong>SANTIAGO</strong>
+        <span>Agenciamento de Cargas e Locação</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="navMenu">
       <a href="#sobre">Sobre</a>
-      <a href="#unidades">Unidades</a>
+      <a href="#unidades">Containers</a>
       <a href="#contato">Contato</a>
       <a class="nav-btn" href="#contato">Solicitar orçamento</a>
     </nav>
@@ -36,63 +45,67 @@
   <!-- HERO / VIDEO -->
   <section class="hero" id="topo">
     <div class="hero-media">
-      <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop">
-        <source src="https://cdn.coverr.co/videos/coverr-cargo-containers-at-port-0897/1080p.mp4" type="video/mp4">
+      <!-- Você pode trocar por um vídeo próprio do perfil, se tiver o .mp4 -->
+      <video class="hero-video" autoplay muted loop playsinline
+        poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop">
+        <source src="https://cdn.coverr.co/videos/coverr-container-terminal-5456/1080p.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
     </div>
 
     <div class="hero-content container">
       <div class="hero-card">
-        <div class="hero-kicker">CONTAINERS VAZIOS</div>
-        <h1>Soluções completas em containers</h1>
+        <div class="hero-kicker">CONTAINERS • LOCAÇÃO • VENDA</div>
+        <h1>Containers vazios com solução completa para sua operação</h1>
         <p>
-          Locação, venda e projetos sob medida para armazenamento, logística e operações industriais.
-          Atendimento ágil, padrão corporativo e foco total em containers.
+          Locação e venda de containers prontos ou personalizados.
+          Soluções para obras, indústrias, almoxarifados e projetos sob medida — com atendimento rápido em Santos e região.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contato">Falar com especialista</a>
-          <a class="btn btn-ghost" href="#unidades">Ver unidades</a>
+          <a class="btn btn-primary"
+             href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Quero%20cotar%20um%20container.%20Pode%20me%20ajudar%3F"
+             target="_blank" rel="noopener">Falar no WhatsApp</a>
+
+          <a class="btn btn-ghost" href="#unidades">Ver tipos de containers</a>
         </div>
       </div>
     </div>
 
-    <button class="hero-arrow hero-arrow-left" aria-label="Anterior">‹</button>
-    <button class="hero-arrow hero-arrow-right" aria-label="Próximo">›</button>
+    <button class="hero-arrow hero-arrow-left" aria-label="Anterior" disabled>‹</button>
+    <button class="hero-arrow hero-arrow-right" aria-label="Próximo" disabled>›</button>
   </section>
 
   <!-- SOBRE -->
   <section class="section section-light" id="sobre">
     <div class="container about">
       <div class="about-title">
-        <h2>Sobre a <span class="accent">ContainerSolutions</span></h2>
+        <h2>Sobre a <span class="accent">Santiago</span></h2>
       </div>
 
       <div class="about-text">
         <p>
-          Somos uma empresa focada em soluções com containers para aplicações corporativas.
-          Trabalhamos com modelos padrão ISO e variações para diferentes operações.
-          Nosso objetivo é entregar uma experiência profissional do início ao fim: proposta clara,
-          prazos definidos e suporte durante todo o período de locação ou venda.
+          Na Santiago, você encontra locação e venda de containers com foco em agilidade, segurança e suporte.
+          Trabalhamos com opções para armazenamento, obras e aplicações especiais.
+          Nosso atendimento é consultivo: entendemos a sua necessidade e indicamos o modelo ideal.
         </p>
       </div>
 
       <div class="mvw">
         <div class="mvw-card">
           <h3>Missão</h3>
-          <p>Fornecer containers com padrão técnico e atendimento ágil, garantindo segurança e eficiência operacional.</p>
+          <p>Entregar soluções em containers com qualidade, atendimento rápido e transparência em cada etapa.</p>
         </div>
         <div class="mvw-card">
           <h3>Visão</h3>
-          <p>Ser referência regional em locação e soluções modulares em containers, com foco em qualidade e confiança.</p>
+          <p>Ser referência regional em locação e venda de containers para operações industriais e logísticas.</p>
         </div>
         <div class="mvw-card">
           <h3>Valores</h3>
           <ul>
             <li>Segurança</li>
-            <li>Transparência</li>
             <li>Compromisso</li>
+            <li>Transparência</li>
             <li>Qualidade</li>
           </ul>
         </div>
@@ -100,28 +113,32 @@
     </div>
   </section>
 
-  <!-- UNIDADES / CARROSSEL -->
+  <!-- CONTAINERS / CARROSSEL -->
   <section class="section section-light" id="unidades">
     <div class="container units">
-      <h2>Nossas <span class="accent">Unidades</span></h2>
+      <h2>Nossos <span class="accent">Containers</span></h2>
+      <p class="sub">Passe para o lado e veja os tipos disponíveis com detalhes.</p>
 
       <div class="units-card">
         <button class="units-nav units-prev" id="unitsPrev" aria-label="Anterior">‹</button>
 
         <div class="units-body">
           <div class="units-image">
-            <img id="unitImage" alt="Imagem do container" />
+            <img id="unitImage" alt="Foto do container" />
           </div>
 
           <div class="units-info">
-            <div class="units-badge" id="unitBadge">Tipo</div>
-            <h3 id="unitName">Nome do container</h3>
+            <div class="units-badge" id="unitBadge">TIPO</div>
+            <h3 id="unitName">Container</h3>
             <p id="unitDesc">Descrição</p>
 
             <div class="units-specs" id="unitSpecs"></div>
 
             <div class="units-actions">
-              <a class="btn btn-primary" href="#contato">Ver disponibilidade</a>
+              <a class="btn btn-primary"
+                 href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Quero%20saber%20a%20disponibilidade%20de%20um%20container.%20Pode%20me%20ajudar%3F"
+                 target="_blank" rel="noopener">Ver disponibilidade</a>
+
               <a class="btn btn-ghost" href="#contato">Solicitar cotação</a>
             </div>
           </div>
@@ -139,7 +156,7 @@
     <div class="container contact">
       <div class="contact-head">
         <h2>Contato</h2>
-        <p>Envie sua necessidade e retornaremos com uma proposta — ou fale direto no WhatsApp.</p>
+        <p>Fale com a Santiago pelo formulário ou direto no WhatsApp.</p>
       </div>
 
       <div class="contact-grid">
@@ -163,13 +180,13 @@
             </div>
             <div class="field">
               <label>Assunto</label>
-              <input type="text" placeholder="Locação / Venda / Projeto">
+              <input type="text" placeholder="Locação / Venda / Personalização">
             </div>
           </div>
 
           <div class="field">
             <label>Mensagem</label>
-            <textarea placeholder="Conte o tipo de container e período estimado..."></textarea>
+            <textarea placeholder="Conte o tipo de container, tamanho (20’/40’) e período estimado..."></textarea>
           </div>
 
           <button class="btn btn-primary btn-full" type="submit">Enviar solicitação</button>
@@ -182,8 +199,8 @@
             <div class="wa-badge">WhatsApp</div>
             <h3>Atendimento rápido</h3>
             <p>
-              Fale direto com nossa equipe comercial para cotação e disponibilidade.
-              Clique no botão abaixo e abra a conversa.
+              Clique para abrir a conversa e enviar sua necessidade.
+              Número oficial: <strong>+55 13 99131-4352</strong>.
             </p>
           </div>
 
@@ -193,19 +210,27 @@
               <strong class="wa-number">+55 13 99131-4352</strong>
             </div>
             <div class="wa-row">
-              <span class="wa-label">Horário</span>
+              <span class="wa-label">Atendimento</span>
               <strong>Seg–Sex • 08:00–18:00</strong>
+            </div>
+            <div class="wa-row">
+              <span class="wa-label">Instagram</span>
+              <strong>
+                <a class="wa-link" href="https://www.instagram.com/santiago_cargas/" target="_blank" rel="noopener">
+                  @santiago_cargas
+                </a>
+              </strong>
             </div>
           </div>
 
           <a class="wa-btn"
-             href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Quero%20uma%20cota%C3%A7%C3%A3o%20de%20container.%20Pode%20me%20ajudar%3F"
+             href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santiago%20e%20quero%20cotar%20um%20container.%20Pode%20me%20ajudar%3F"
              target="_blank" rel="noopener">
             Chamar no WhatsApp
           </a>
 
           <p class="wa-footnote">
-            *Mensagem automática inicial — você pode editar no WhatsApp.
+            *A mensagem inicial é automática — você pode editar no WhatsApp.
           </p>
         </aside>
       </div>
@@ -215,7 +240,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© 2025 ContainerSolutions — Locação, venda e soluções em containers.</p>
+      <p>© 2025 Santiago Agenciamento de Cargas e Locação</p>
       <p>Sistemas de Informação | Alexandre Sobrino</p>
     </div>
   </footer>
@@ -223,9 +248,9 @@
   <!-- CTA FIXA -->
   <div class="bottom-cta">
     <div class="bottom-cta-inner container">
-      <strong>LOCAÇÃO, VENDA E AGENDAMENTO DE CARGAS</strong>
+      <strong>LOCAÇÃO • VENDA • AGENDAMENTO DE CARGAS</strong>
       <a class="btn btn-primary btn-small"
-         href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Quero%20uma%20cota%C3%A7%C3%A3o%20de%20container.%20Pode%20me%20ajudar%3F"
+         href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Quero%20cotar%20um%20container.%20Pode%20me%20ajudar%3F"
          target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
