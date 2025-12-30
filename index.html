@@ -1,160 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Aluguel de Containers | Logística e Armazenamento</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Containers | Soluções Completas</title>
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<header class="header">
-  <div class="logo">
-    <i class="fa-solid fa-box"></i> Container<span>Solutions</span>
-  </div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <strong>CONTAINER</strong>
+        <span>Solutions</span>
+      </div>
+    </div>
 
-  <nav id="navMenu">
-    <a href="#beneficios">Benefícios</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#processo">Como Funciona</a>
-    <a href="#contato" class="btn-nav">Contato</a>
-  </nav>
+    <nav class="nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#contato">Contato</a>
+      <a class="nav-btn" href="#contato">Solicitar orçamento</a>
+    </nav>
 
-  <div class="menu-toggle" id="menuToggle">
-    <i class="fa-solid fa-bars"></i>
-  </div>
-</header>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Aluguel de Containers para Logística, Obras e Armazenamento</h1>
-    <p>
-      Solução rápida, segura e econômica para empresas que precisam
-      de espaço imediato com padrão industrial.
-    </p>
+  <!-- HERO / VIDEO -->
+  <section class="hero" id="topo">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop">
+        <source src="https://cdn.coverr.co/videos/coverr-cargo-containers-at-port-0897/1080p.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
 
-    <div class="hero-buttons">
-      <button class="btn-primary">
-        <i class="fa-solid fa-phone"></i> Entrar em Contato
-      </button>
+    <div class="hero-content container">
+      <div class="hero-card">
+        <div class="hero-kicker">CONTAINERS VAZIOS</div>
+        <h1>Soluções completas em containers</h1>
+        <p>
+          Locação, venda e projetos sob medida para armazenamento, logística e operações industriais.
+          Atendimento ágil, padrão corporativo e foco total em containers.
+        </p>
 
-      <button class="btn-outline">
-        <i class="fa-solid fa-file-lines"></i> Solicitar Orçamento
-      </button>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contato">Falar com especialista</a>
+          <a class="btn btn-ghost" href="#unidades">Ver unidades</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="hero-arrow hero-arrow-left" aria-label="Anterior">‹</button>
+    <button class="hero-arrow hero-arrow-right" aria-label="Próximo">›</button>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section section-light" id="sobre">
+    <div class="container about">
+      <div class="about-title">
+        <h2>Sobre a <span class="accent">ContainerSolutions</span></h2>
+      </div>
+
+      <div class="about-text">
+        <p>
+          Somos uma empresa focada em soluções com containers para aplicações corporativas.
+          Trabalhamos com modelos padrão ISO e variações para diferentes operações.
+          Nosso objetivo é entregar uma experiência profissional do início ao fim: proposta clara,
+          prazos definidos e suporte durante todo o período de locação ou venda.
+        </p>
+      </div>
+
+      <div class="mvw">
+        <div class="mvw-card">
+          <h3>Missão</h3>
+          <p>Fornecer containers com padrão técnico e atendimento ágil, garantindo segurança e eficiência operacional.</p>
+        </div>
+        <div class="mvw-card">
+          <h3>Visão</h3>
+          <p>Ser referência regional em locação e soluções modulares em containers, com foco em qualidade e confiança.</p>
+        </div>
+        <div class="mvw-card">
+          <h3>Valores</h3>
+          <ul>
+            <li>Segurança</li>
+            <li>Transparência</li>
+            <li>Compromisso</li>
+            <li>Qualidade</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIDADES / CARROSSEL -->
+  <section class="section section-light" id="unidades">
+    <div class="container units">
+      <h2>Nossas <span class="accent">Unidades</span></h2>
+
+      <div class="units-card">
+        <button class="units-nav units-prev" id="unitsPrev" aria-label="Anterior">‹</button>
+
+        <div class="units-body">
+          <div class="units-image">
+            <img id="unitImage" alt="Imagem do container" />
+          </div>
+
+          <div class="units-info">
+            <div class="units-badge" id="unitBadge">Tipo</div>
+            <h3 id="unitName">Nome do container</h3>
+            <p id="unitDesc">Descrição</p>
+
+            <div class="units-specs" id="unitSpecs"></div>
+
+            <div class="units-actions">
+              <a class="btn btn-primary" href="#contato">Ver disponibilidade</a>
+              <a class="btn btn-ghost" href="#contato">Solicitar cotação</a>
+            </div>
+          </div>
+        </div>
+
+        <button class="units-nav units-next" id="unitsNext" aria-label="Próximo">›</button>
+      </div>
+
+      <div class="units-dots" id="unitsDots"></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section section-dark" id="contato">
+    <div class="container contact">
+      <div class="contact-head">
+        <h2>Contato</h2>
+        <p>Envie sua necessidade e retornaremos com uma proposta — ou fale direto no WhatsApp.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Form -->
+        <form class="form" id="contactForm">
+          <div class="grid">
+            <div class="field">
+              <label>Nome</label>
+              <input type="text" placeholder="Seu nome" required>
+            </div>
+            <div class="field">
+              <label>E-mail</label>
+              <input type="email" placeholder="seuemail@empresa.com" required>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="field">
+              <label>Telefone</label>
+              <input type="tel" placeholder="(13) 9xxxx-xxxx">
+            </div>
+            <div class="field">
+              <label>Assunto</label>
+              <input type="text" placeholder="Locação / Venda / Projeto">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Mensagem</label>
+            <textarea placeholder="Conte o tipo de container e período estimado..."></textarea>
+          </div>
+
+          <button class="btn btn-primary btn-full" type="submit">Enviar solicitação</button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+
+        <!-- WhatsApp -->
+        <aside class="wa-card" aria-label="Atendimento via WhatsApp">
+          <div class="wa-top">
+            <div class="wa-badge">WhatsApp</div>
+            <h3>Atendimento rápido</h3>
+            <p>
+              Fale direto com nossa equipe comercial para cotação e disponibilidade.
+              Clique no botão abaixo e abra a conversa.
+            </p>
+          </div>
+
+          <div class="wa-info">
+            <div class="wa-row">
+              <span class="wa-label">Número</span>
+              <strong class="wa-number">+55 13 99131-4352</strong>
+            </div>
+            <div class="wa-row">
+              <span class="wa-label">Horário</span>
+              <strong>Seg–Sex • 08:00–18:00</strong>
+            </div>
+          </div>
+
+          <a class="wa-btn"
+             href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Quero%20uma%20cota%C3%A7%C3%A3o%20de%20container.%20Pode%20me%20ajudar%3F"
+             target="_blank" rel="noopener">
+            Chamar no WhatsApp
+          </a>
+
+          <p class="wa-footnote">
+            *Mensagem automática inicial — você pode editar no WhatsApp.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 ContainerSolutions — Locação, venda e soluções em containers.</p>
+      <p>Sistemas de Informação | Alexandre Sobrino</p>
+    </div>
+  </footer>
+
+  <!-- CTA FIXA -->
+  <div class="bottom-cta">
+    <div class="bottom-cta-inner container">
+      <strong>LOCAÇÃO, VENDA E AGENDAMENTO DE CARGAS</strong>
+      <a class="btn btn-primary btn-small"
+         href="https://wa.me/5513991314352?text=Ol%C3%A1!%20Quero%20uma%20cota%C3%A7%C3%A3o%20de%20container.%20Pode%20me%20ajudar%3F"
+         target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
-</section>
 
-<!-- BENEFÍCIOS -->
-<section id="beneficios" class="section">
-  <h2>Por que Alugar um Container?</h2>
-
-  <div class="benefits">
-    <div class="benefit reveal">
-      <i class="fa-solid fa-bolt"></i>
-      <h3>Solução Rápida</h3>
-      <p>Disponibilidade imediata para armazenamento ou operação.</p>
-    </div>
-
-    <div class="benefit reveal">
-      <i class="fa-solid fa-lock"></i>
-      <h3>Alta Segurança</h3>
-      <p>Estrutura reforçada e proteção total dos materiais.</p>
-    </div>
-
-    <div class="benefit reveal">
-      <i class="fa-solid fa-coins"></i>
-      <h3>Economia</h3>
-      <p>Redução de custos e flexibilidade contratual.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section id="servicos" class="section dark">
-  <h2>Nossas Soluções</h2>
-
-  <div class="services">
-    <div class="service reveal">
-      <i class="fa-solid fa-warehouse"></i>
-      <h3>Armazenamento</h3>
-      <p>Ideal para insumos, mercadorias e equipamentos.</p>
-    </div>
-
-    <div class="service reveal">
-      <i class="fa-solid fa-helmet-safety"></i>
-      <h3>Obras e Indústrias</h3>
-      <p>Uso em canteiros, fábricas e áreas operacionais.</p>
-    </div>
-
-    <div class="service reveal">
-      <i class="fa-solid fa-truck-moving"></i>
-      <h3>Logística</h3>
-      <p>Suporte para operações portuárias e logísticas.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESSO -->
-<section id="processo" class="section">
-  <h2>Como Funciona</h2>
-
-  <div class="steps">
-    <div class="step reveal">
-      <span>01</span>
-      <p>Entendimento da necessidade</p>
-    </div>
-
-    <div class="step reveal">
-      <span>02</span>
-      <p>Definição do container ideal</p>
-    </div>
-
-    <div class="step reveal">
-      <span>03</span>
-      <p>Entrega no local combinado</p>
-    </div>
-
-    <div class="step reveal">
-      <span>04</span>
-      <p>Suporte durante todo o período</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>Precisa de um Container Agora?</h2>
-  <p>Atendimento rápido e especializado.</p>
-  <button class="btn-primary">
-    <i class="fa-solid fa-headset"></i> Falar com Especialista
-  </button>
-</section>
-
-<!-- CONTATO -->
-<section id="contato" class="section dark">
-  <h2>Contato</h2>
-
-  <form class="form reveal">
-    <input type="text" placeholder="Nome">
-    <input type="email" placeholder="E-mail">
-    <textarea placeholder="Descreva sua necessidade"></textarea>
-    <button class="btn-primary">Enviar Mensagem</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2025 - Soluções em Containers</p>
-  <p>Sistemas de Informação | Alexandre Sobrino</p>
-</footer>
-
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
