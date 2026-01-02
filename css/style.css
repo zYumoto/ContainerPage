@@ -28,30 +28,29 @@ a{color:inherit}
 
 .brand{
   display:flex;
-  flex-direction:column;
-  gap:2px;
+  align-items:center;
   text-decoration:none;
 }
 
-/* Nome principal */
-.brand-name{
-  font-weight:900;
-  letter-spacing:.14em;
-  font-size:1rem;
-  color:#fff;
+.brand-logo{
+  height:80px;        /* tamanho ideal */
+  width:auto;
+  object-fit:contain;
+  transition: opacity .2s ease;
 }
 
-/* Subtítulo */
-.brand-sub{
-  font-size:.78rem;
-  letter-spacing:.06em;
-  color:rgba(255,255,255,.70);
+/* hover discreto */
+.brand:hover .brand-logo{
+  opacity:.85;
 }
 
-/* Hover discreto */
-.brand:hover .brand-name{
-  opacity:.9;
+/* mobile */
+@media (max-width: 560px){
+  .brand-logo{
+    height:28px;
+  }
 }
+
 
 /* Header mais alinhado */
 .header{

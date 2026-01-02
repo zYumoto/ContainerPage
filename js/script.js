@@ -9,26 +9,24 @@ if (navToggle) {
 const units = [
   {
     badge: "DRY",
-    name: "Container Dry (Carga Seca)",
-    desc: "O mais utilizado no mercado. Ideal para armazenamento e transporte de cargas secas, equipamentos e materiais em geral.",
-    // Foto real (yard)
-    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1400&auto=format&fit=crop",
+    name: "Container Dry",
+    desc: "Modelo padrão ISO mais utilizado. Ideal para armazenamento e transporte de cargas secas, equipamentos e materiais em geral.",
+    img: "img/Dry.png",
     specs: [
       { k: "Tamanhos", v: "20’ / 40’" },
       { k: "Aplicação", v: "Cargas secas" },
-      { k: "Uso", v: "Obras / Indústrias" },
+      { k: "Uso", v: "Obras e indústrias" },
       { k: "Benefício", v: "Versátil e seguro" },
     ]
   },
   {
     badge: "REEFER",
-    name: "Container Reefer (Refrigerado)",
-    desc: "Controle de temperatura para cargas sensíveis e perecíveis. Excelente para alimentos, bebidas e insumos que exigem refrigeração.",
-    // Foto real (reefer em terminal)
-    img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1400&auto=format&fit=crop",
+    name: "Container Reefer",
+    desc: "Container refrigerado com controle de temperatura, indicado para alimentos, bebidas e cargas sensíveis.",
+    img: "img/Reefer.png",
     specs: [
       { k: "Tamanhos", v: "20’ / 40’" },
-      { k: "Diferencial", v: "Temperatura controlada" },
+      { k: "Diferencial", v: "Refrigeração ativa" },
       { k: "Aplicação", v: "Perecíveis" },
       { k: "Uso", v: "Câmara fria móvel" },
     ]
@@ -36,9 +34,8 @@ const units = [
   {
     badge: "OPEN TOP",
     name: "Container Open Top",
-    desc: "Indicado para cargas com altura excedente ou que exigem carregamento superior (guindaste). Cobertura removível.",
-    // Foto real (topo aberto / terminal)
-    img: "https://images.unsplash.com/photo-1581092160613-f6aa6a1e1b4f?q=80&w=1400&auto=format&fit=crop",
+    desc: "Indicado para cargas com altura excedente ou carregamento superior por guindaste.",
+    img: "img/OpenTop.png",   // <-- SEM ESPAÇO
     specs: [
       { k: "Tamanhos", v: "20’ / 40’" },
       { k: "Acesso", v: "Carregamento superior" },
@@ -49,9 +46,8 @@ const units = [
   {
     badge: "FLAT RACK",
     name: "Container Flat Rack",
-    desc: "Para cargas de grandes dimensões (laterais abertas). Ideal para máquinas, estruturas metálicas e equipamentos especiais.",
-    // Foto real (flat rack / operação)
-    img: "https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?q=80&w=1400&auto=format&fit=crop",
+    desc: "Para cargas de grandes dimensões, máquinas e equipamentos especiais.",
+    img: "img/FlatRack.png",
     specs: [
       { k: "Tamanhos", v: "20’ / 40’" },
       { k: "Estrutura", v: "Laterais abertas" },
@@ -60,6 +56,7 @@ const units = [
     ]
   }
 ];
+
 
 let idx = 0;
 
