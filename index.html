@@ -38,9 +38,9 @@
   <section class="hero" id="topo">
     <div class="hero-media">
       <!-- Você pode trocar por um vídeo próprio do perfil, se tiver o .mp4 -->
-      <video class="hero-video" autoplay muted loop playsinline
-        poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop">
-        <source src="https://cdn.coverr.co/videos/coverr-container-terminal-5456/1080p.mp4" type="video/mp4">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto"
+        poster="img/Dry.png">
+        <source src="img/Video Front.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
     </div>
@@ -157,28 +157,28 @@
           <div class="grid">
             <div class="field">
               <label>Nome</label>
-              <input type="text" placeholder="Seu nome" required>
+              <input type="text" id="contactName" name="name" placeholder="Seu nome" required>
             </div>
             <div class="field">
               <label>E-mail</label>
-              <input type="email" placeholder="seuemail@empresa.com" required>
+              <input type="email" id="contactEmail" name="email" placeholder="seuemail@empresa.com" required>
             </div>
           </div>
 
           <div class="grid">
             <div class="field">
               <label>Telefone</label>
-              <input type="tel" placeholder="(13) 9xxxx-xxxx">
+              <input type="tel" id="contactPhone" name="phone" placeholder="(13) 9xxxx-xxxx">
             </div>
             <div class="field">
               <label>Assunto</label>
-              <input type="text" placeholder="Locação / Venda / Personalização">
+              <input type="text" id="contactSubject" name="subject" placeholder="Locação / Venda / Personalização">
             </div>
           </div>
 
           <div class="field">
             <label>Mensagem</label>
-            <textarea placeholder="Conte o tipo de container, tamanho (20’/40’) e período estimado..."></textarea>
+            <textarea id="contactMessage" name="message" placeholder="Conte o tipo de container, tamanho (20’/40’) e período estimado..."></textarea>
           </div>
 
           <button class="btn btn-primary btn-full" type="submit">Enviar solicitação</button>

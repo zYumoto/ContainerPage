@@ -5,6 +5,33 @@ if (navToggle) {
   navToggle.addEventListener("click", () => nav.classList.toggle("open"));
 }
 
+// Scroll suave para links internos, com compensação do header sticky.
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+anchorLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const targetId = link.getAttribute("href");
+    if (!targetId || targetId === "#") return;
+
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    e.preventDefault();
+
+    const header = document.querySelector(".header");
+    const headerOffset = header ? header.offsetHeight : 0;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset - 12;
+
+    window.scrollTo({
+      top: Math.max(targetTop, 0),
+      behavior: "smooth",
+    });
+
+    if (nav && nav.classList.contains("open")) {
+      nav.classList.remove("open");
+    }
+  });
+});
+
 // Carrossel de tipos de containers (Santiago)
 const units = [
   {
@@ -126,13 +153,32 @@ if (card) {
 
 renderUnit();
 
-// Form fake submit
+// Formulario envia os dados preenchidos para o WhatsApp
 const contactForm = document.getElementById("contactForm");
 const formMsg = document.getElementById("formMsg");
 if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    formMsg.textContent = "Solicitação enviada! Em breve a equipe da Santiago entrará em contato.";
-    contactForm.reset();
+
+    const name = contactForm.elements.namedItem("name")?.value.trim() || "";
+    const email = contactForm.elements.namedItem("email")?.value.trim() || "";
+    const phone = contactForm.elements.namedItem("phone")?.value.trim() || "";
+    const subject = contactForm.elements.namedItem("subject")?.value.trim() || "";
+    const message = contactForm.elements.namedItem("message")?.value.trim() || "";
+
+    const waMessage = [
+      "Ola! Vim pelo site da Santiago e quero solicitar um atendimento.",
+      "",
+      `Nome: ${name}`,
+      `E-mail: ${email}`,
+      `Telefone: ${phone || "Nao informado"}`,
+      `Assunto: ${subject || "Nao informado"}`,
+      `Mensagem: ${message || "Nao informada"}`
+    ].join("\n");
+
+    const waUrl = `https://wa.me/5513991314352?text=${encodeURIComponent(waMessage)}`;
+    window.open(waUrl, "_blank", "noopener");
+
+    formMsg.textContent = "Abrindo o WhatsApp com os dados preenchidos.";
   });
 }
