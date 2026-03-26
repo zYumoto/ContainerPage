@@ -1,164 +1,249 @@
-// Menu mobile
 const navToggle = document.getElementById("navToggle");
 const nav = document.getElementById("navMenu");
-if (navToggle) {
-  navToggle.addEventListener("click", () => nav.classList.toggle("open"));
+
+if (navToggle && nav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 }
 
-// Scroll suave para links internos, com compensação do header sticky.
 const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
 anchorLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
+  link.addEventListener("click", (event) => {
     const targetId = link.getAttribute("href");
     if (!targetId || targetId === "#") return;
 
     const target = document.querySelector(targetId);
     if (!target) return;
 
-    e.preventDefault();
+    event.preventDefault();
 
     const header = document.querySelector(".header");
     const headerOffset = header ? header.offsetHeight : 0;
-    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset - 12;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset - 8;
 
     window.scrollTo({
       top: Math.max(targetTop, 0),
       behavior: "smooth",
     });
 
-    if (nav && nav.classList.contains("open")) {
+    if (nav?.classList.contains("open")) {
       nav.classList.remove("open");
+      navToggle?.setAttribute("aria-expanded", "false");
     }
   });
 });
 
-// Carrossel de tipos de containers (Santiago)
+const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+const heroPrev = document.getElementById("heroPrev");
+const heroNext = document.getElementById("heroNext");
+const heroDots = document.getElementById("heroDots");
+let heroIndex = 0;
+let heroTimer;
+
+function renderHeroDots() {
+  if (!heroDots) return;
+
+  heroDots.innerHTML = "";
+  heroSlides.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.className = `dot${index === heroIndex ? " active" : ""}`;
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Ir para o slide ${index + 1}`);
+    dot.addEventListener("click", () => {
+      heroIndex = index;
+      renderHero();
+      restartHeroTimer();
+    });
+    heroDots.appendChild(dot);
+  });
+}
+
+function renderHero() {
+  heroSlides.forEach((slide, index) => {
+    slide.classList.toggle("is-active", index === heroIndex);
+  });
+  renderHeroDots();
+}
+
+function nextHero() {
+  heroIndex = (heroIndex + 1) % heroSlides.length;
+  renderHero();
+}
+
+function prevHero() {
+  heroIndex = (heroIndex - 1 + heroSlides.length) % heroSlides.length;
+  renderHero();
+}
+
+function restartHeroTimer() {
+  window.clearInterval(heroTimer);
+  heroTimer = window.setInterval(nextHero, 6500);
+}
+
+if (heroSlides.length > 0) {
+  heroPrev?.addEventListener("click", () => {
+    prevHero();
+    restartHeroTimer();
+  });
+
+  heroNext?.addEventListener("click", () => {
+    nextHero();
+    restartHeroTimer();
+  });
+
+  renderHero();
+  restartHeroTimer();
+}
+
 const units = [
   {
-    badge: "DRY",
+    badge: "Dry",
     name: "Container Dry",
-    desc: "Modelo padrão ISO mais utilizado. Ideal para armazenamento e transporte de cargas secas, equipamentos e materiais em geral.",
+    desc: "Modelo ISO mais usado para armazenamento e transporte de cargas secas, materiais de obra e apoio operacional.",
     img: "img/Dry.png",
     specs: [
-      { k: "Tamanhos", v: "20’ / 40’" },
+      { k: "Tamanhos", v: "20' / 40'" },
       { k: "Aplicação", v: "Cargas secas" },
       { k: "Uso", v: "Obras e indústrias" },
-      { k: "Benefício", v: "Versátil e seguro" },
-    ]
+      { k: "Destaque", v: "Versátil e seguro" },
+    ],
   },
   {
-    badge: "REEFER",
+    badge: "Reefer",
     name: "Container Reefer",
-    desc: "Container refrigerado com controle de temperatura, indicado para alimentos, bebidas e cargas sensíveis.",
+    desc: "Container refrigerado para alimentos, bebidas e cargas sensíveis que exigem controle de temperatura.",
     img: "img/Reefer.png",
     specs: [
-      { k: "Tamanhos", v: "20’ / 40’" },
+      { k: "Tamanhos", v: "20' / 40'" },
       { k: "Diferencial", v: "Refrigeração ativa" },
       { k: "Aplicação", v: "Perecíveis" },
       { k: "Uso", v: "Câmara fria móvel" },
-    ]
+    ],
   },
   {
-    badge: "OPEN TOP",
+    badge: "Open Top",
     name: "Container Open Top",
-    desc: "Indicado para cargas com altura excedente ou carregamento superior por guindaste.",
-    img: "img/OpenTop.png",   // <-- SEM ESPAÇO
+    desc: "Estrutura indicada para cargas altas ou carregamento superior com ponte rolante, guindaste ou içamento técnico.",
+    img: "img/OpenTop.png",
     specs: [
-      { k: "Tamanhos", v: "20’ / 40’" },
-      { k: "Acesso", v: "Carregamento superior" },
-      { k: "Aplicação", v: "Cargas altas" },
-      { k: "Uso", v: "Indústria pesada" },
-    ]
+      { k: "Tamanhos", v: "20' / 40'" },
+      { k: "Acesso", v: "Abertura superior" },
+      { k: "Aplicação", v: "Carga excedente" },
+      { k: "Uso", v: "Projetos industriais" },
+    ],
   },
   {
-    badge: "FLAT RACK",
+    badge: "Flat Rack",
     name: "Container Flat Rack",
-    desc: "Para cargas de grandes dimensões, máquinas e equipamentos especiais.",
+    desc: "Ideal para máquinas, equipamentos e cargas com grandes dimensões que exigem estrutura aberta e reforçada.",
     img: "img/FlatRack.png",
     specs: [
-      { k: "Tamanhos", v: "20’ / 40’" },
+      { k: "Tamanhos", v: "20' / 40'" },
       { k: "Estrutura", v: "Laterais abertas" },
-      { k: "Aplicação", v: "Carga oversized" },
-      { k: "Uso", v: "Projetos especiais" },
-    ]
-  }
+      { k: "Aplicação", v: "Carga especial" },
+      { k: "Uso", v: "Operação pesada" },
+    ],
+  },
 ];
 
-
-let idx = 0;
+let unitIndex = 0;
 
 const unitBadge = document.getElementById("unitBadge");
 const unitName = document.getElementById("unitName");
 const unitDesc = document.getElementById("unitDesc");
 const unitImage = document.getElementById("unitImage");
 const unitSpecs = document.getElementById("unitSpecs");
-
 const prevBtn = document.getElementById("unitsPrev");
 const nextBtn = document.getElementById("unitsNext");
 const dotsEl = document.getElementById("unitsDots");
 
-function renderDots() {
+function renderUnitDots() {
+  if (!dotsEl) return;
+
   dotsEl.innerHTML = "";
-  units.forEach((_, i) => {
-    const d = document.createElement("button");
-    d.className = "dot" + (i === idx ? " active" : "");
-    d.setAttribute("aria-label", `Ir para ${i + 1}`);
-    d.addEventListener("click", () => { idx = i; renderUnit(); });
-    dotsEl.appendChild(d);
+  units.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.className = `dot${index === unitIndex ? " active" : ""}`;
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Ir para o container ${index + 1}`);
+    dot.addEventListener("click", () => {
+      unitIndex = index;
+      renderUnit();
+    });
+    dotsEl.appendChild(dot);
   });
 }
 
 function renderUnit() {
-  const u = units[idx];
-  unitBadge.textContent = u.badge;
-  unitName.textContent = u.name;
-  unitDesc.textContent = u.desc;
-  unitImage.src = u.img;
+  const unit = units[unitIndex];
+  if (!unitBadge || !unitName || !unitDesc || !unitImage || !unitSpecs) return;
 
-  unitSpecs.innerHTML = u.specs.map(s => `
-    <div class="spec">
-      <strong>${s.k}</strong>
-      <span>${s.v}</span>
-    </div>
-  `).join("");
+  unitBadge.textContent = unit.badge;
+  unitName.textContent = unit.name;
+  unitDesc.textContent = unit.desc;
+  unitImage.src = unit.img;
+  unitImage.alt = unit.name;
+  unitSpecs.innerHTML = unit.specs
+    .map(
+      (spec) => `
+        <div class="spec">
+          <strong>${spec.k}</strong>
+          <span>${spec.v}</span>
+        </div>
+      `
+    )
+    .join("");
 
-  renderDots();
+  renderUnitDots();
 }
 
 function nextUnit() {
-  idx = (idx + 1) % units.length;
+  unitIndex = (unitIndex + 1) % units.length;
   renderUnit();
 }
+
 function prevUnit() {
-  idx = (idx - 1 + units.length) % units.length;
+  unitIndex = (unitIndex - 1 + units.length) % units.length;
   renderUnit();
 }
 
-if (prevBtn && nextBtn) {
-  prevBtn.addEventListener("click", prevUnit);
-  nextBtn.addEventListener("click", nextUnit);
-}
+prevBtn?.addEventListener("click", prevUnit);
+nextBtn?.addEventListener("click", nextUnit);
 
-// Swipe no mobile
-let startX = 0;
 const card = document.querySelector(".units-card");
+let startX = 0;
+
 if (card) {
-  card.addEventListener("touchstart", (e) => startX = e.touches[0].clientX, { passive: true });
-  card.addEventListener("touchend", (e) => {
-    const endX = e.changedTouches[0].clientX;
+  card.addEventListener(
+    "touchstart",
+    (event) => {
+      startX = event.touches[0].clientX;
+    },
+    { passive: true }
+  );
+
+  card.addEventListener("touchend", (event) => {
+    const endX = event.changedTouches[0].clientX;
     const diff = endX - startX;
-    if (Math.abs(diff) > 45) diff < 0 ? nextUnit() : prevUnit();
+
+    if (Math.abs(diff) > 45) {
+      if (diff < 0) nextUnit();
+      else prevUnit();
+    }
   });
 }
 
 renderUnit();
 
-// Formulario envia os dados preenchidos para o WhatsApp
 const contactForm = document.getElementById("contactForm");
 const formMsg = document.getElementById("formMsg");
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+
+if (contactForm && formMsg) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
     const name = contactForm.elements.namedItem("name")?.value.trim() || "";
     const email = contactForm.elements.namedItem("email")?.value.trim() || "";
@@ -167,18 +252,18 @@ if (contactForm) {
     const message = contactForm.elements.namedItem("message")?.value.trim() || "";
 
     const waMessage = [
-      "Ola! Vim pelo site da Santiago e quero solicitar um atendimento.",
+      "Olá! Vim pelo site da Santiago e quero solicitar atendimento.",
       "",
       `Nome: ${name}`,
       `E-mail: ${email}`,
-      `Telefone: ${phone || "Nao informado"}`,
-      `Assunto: ${subject || "Nao informado"}`,
-      `Mensagem: ${message || "Nao informada"}`
+      `Telefone: ${phone || "Não informado"}`,
+      `Assunto: ${subject || "Não informado"}`,
+      `Mensagem: ${message || "Não informada"}`,
     ].join("\n");
 
     const waUrl = `https://wa.me/5513991314352?text=${encodeURIComponent(waMessage)}`;
     window.open(waUrl, "_blank", "noopener");
 
-    formMsg.textContent = "Abrindo o WhatsApp com os dados preenchidos.";
+    formMsg.textContent = "Abrindo o WhatsApp com a mensagem preenchida.";
   });
 }
