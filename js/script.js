@@ -37,11 +37,15 @@ anchorLinks.forEach((link) => {
 });
 
 const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+const hero = document.querySelector(".hero");
 const heroPrev = document.getElementById("heroPrev");
 const heroNext = document.getElementById("heroNext");
 const heroDots = document.getElementById("heroDots");
+const heroImageDelay = 15000;
 let heroIndex = 0;
 let heroTimer;
+let heroTouchStartX = 0;
+let heroTouchStartY = 0;
 
 function renderHeroDots() {
   if (!heroDots) return;
@@ -55,7 +59,6 @@ function renderHeroDots() {
     dot.addEventListener("click", () => {
       heroIndex = index;
       renderHero();
-      restartHeroTimer();
     });
     heroDots.appendChild(dot);
   });
@@ -63,9 +66,29 @@ function renderHeroDots() {
 
 function renderHero() {
   heroSlides.forEach((slide, index) => {
-    slide.classList.toggle("is-active", index === heroIndex);
+    const isActive = index === heroIndex;
+    const video = slide.querySelector("video");
+
+    slide.classList.toggle("is-active", isActive);
+
+    if (!video) return;
+
+    video.onended = null;
+
+    if (isActive) {
+      video.currentTime = 0;
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+      return;
+    }
+
+    video.pause();
+    video.currentTime = 0;
   });
   renderHeroDots();
+  restartHeroTimer();
 }
 
 function nextHero() {
@@ -79,23 +102,53 @@ function prevHero() {
 }
 
 function restartHeroTimer() {
-  window.clearInterval(heroTimer);
-  heroTimer = window.setInterval(nextHero, 6500);
+  window.clearTimeout(heroTimer);
+
+  const activeSlide = heroSlides[heroIndex];
+  if (!activeSlide) return;
+
+  const activeVideo = activeSlide.querySelector("video");
+  if (activeVideo) {
+    activeVideo.onended = () => {
+      nextHero();
+    };
+    return;
+  }
+
+  heroTimer = window.setTimeout(nextHero, heroImageDelay);
 }
 
 if (heroSlides.length > 0) {
   heroPrev?.addEventListener("click", () => {
     prevHero();
-    restartHeroTimer();
   });
 
   heroNext?.addEventListener("click", () => {
     nextHero();
-    restartHeroTimer();
+  });
+
+  hero?.addEventListener(
+    "touchstart",
+    (event) => {
+      heroTouchStartX = event.touches[0].clientX;
+      heroTouchStartY = event.touches[0].clientY;
+    },
+    { passive: true }
+  );
+
+  hero?.addEventListener("touchend", (event) => {
+    const endX = event.changedTouches[0].clientX;
+    const endY = event.changedTouches[0].clientY;
+    const diffX = endX - heroTouchStartX;
+    const diffY = endY - heroTouchStartY;
+
+    if (Math.abs(diffX) < 45 || Math.abs(diffX) <= Math.abs(diffY)) return;
+
+    if (diffX < 0) nextHero();
+    else prevHero();
   });
 
   renderHero();
-  restartHeroTimer();
 }
 
 const units = [

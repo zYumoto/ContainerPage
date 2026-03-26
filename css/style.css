@@ -23,6 +23,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 92px;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -127,6 +131,7 @@ textarea {
   min-height: 100vh;
   background: #050608;
   overflow: hidden;
+  touch-action: pan-y;
 }
 
 .hero-slides {
@@ -461,6 +466,10 @@ h2 {
   align-items: center;
 }
 
+.units-media {
+  position: relative;
+}
+
 .units-image {
   min-height: 430px;
   overflow: hidden;
@@ -739,6 +748,9 @@ textarea::placeholder {
 @media (max-width: 860px) {
   .header {
     padding: 20px;
+    background: rgba(9, 11, 15, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
   }
 
   .nav-toggle {
@@ -797,27 +809,32 @@ textarea::placeholder {
   }
 
   .units-nav {
-    top: auto;
-    bottom: -68px;
-    transform: none;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
   }
 
   .units-prev {
-    left: calc(50% - 66px);
+    left: -12px;
   }
 
   .units-next {
-    right: calc(50% - 66px);
+    right: -12px;
   }
 
   .units-dots {
-    margin-top: 84px;
+    margin-top: 22px;
   }
 }
 
 @media (max-width: 640px) {
   .container {
     width: min(100% - 28px, 1180px);
+  }
+
+  .hero,
+  .hero-slides {
+    min-height: 780px;
   }
 
   .header {
@@ -830,7 +847,8 @@ textarea::placeholder {
 
   .hero-content {
     align-items: flex-start;
-    padding: 176px 0 184px;
+    min-height: 780px;
+    padding: 148px 0 64px;
   }
 
   .hero-copy {
@@ -844,52 +862,56 @@ textarea::placeholder {
   }
 
   .hero h1 {
-    max-width: 7ch;
-    font-size: clamp(2.95rem, 15vw, 4.5rem);
-    line-height: 0.92;
+    max-width: 100%;
+    font-size: clamp(2.45rem, 12.4vw, 3.5rem);
+    line-height: 0.94;
+    overflow-wrap: anywhere;
   }
 
   .hero-text {
-    max-width: 32ch;
-    margin-top: 18px;
-    font-size: 0.98rem;
-    line-height: 1.55;
+    max-width: 100%;
+    margin-top: 16px;
+    font-size: 0.96rem;
+    line-height: 1.6;
   }
 
   .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
     gap: 12px;
     margin-top: 24px;
   }
 
   .hero-actions .btn {
+    width: 100%;
     min-height: 52px;
     padding: 0 20px;
   }
 
   .hero-arrow {
-    top: auto;
-    bottom: 246px;
-    transform: none;
-    width: 48px;
-    height: 48px;
-  }
-
-  .hero-arrow-left {
-    left: 14px;
-  }
-
-  .hero-arrow-right {
-    right: 14px;
+    display: none;
   }
 
   .hero-bottom {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
     width: min(100% - 28px, 1180px);
-    margin-top: -76px;
+    margin: 0 auto;
+    padding: 14px 0 28px;
+    flex-direction: column;
+    align-items: stretch;
     gap: 16px;
+  }
+
+  .hero-metrics {
+    gap: 12px;
   }
 
   .hero-metric {
     padding: 16px;
+    border-radius: 18px;
   }
 
   .section {
@@ -908,8 +930,37 @@ textarea::placeholder {
     grid-template-columns: 1fr;
   }
 
+  .units-card {
+    padding-bottom: 28px;
+  }
+
+  .units-actions .btn {
+    width: 100%;
+  }
+
   .units-image {
-    min-height: 280px;
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .units-media {
+    padding: 0 10px;
+  }
+
+  .units-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 1.6rem;
+    background: rgba(17, 22, 29, 0.9);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  }
+
+  .units-prev {
+    left: -2px;
+  }
+
+  .units-next {
+    right: -2px;
   }
 
   .footer-inner {
@@ -924,46 +975,45 @@ textarea::placeholder {
   }
 
   .brand-logo {
-    width: 134px;
+    width: 120px;
   }
 
   .nav-toggle {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero,
+  .hero-slides {
+    min-height: 740px;
   }
 
   .hero-content {
-    padding: 184px 0 196px;
+    min-height: 740px;
+    padding: 126px 0 56px;
   }
 
   .hero h1 {
-    font-size: clamp(2.7rem, 16vw, 4rem);
-    max-width: 6.6ch;
+    font-size: clamp(2.1rem, 11.6vw, 3rem);
   }
 
   .hero-text {
-    max-width: 28ch;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
+  .hero-kicker {
+    font-size: 0.69rem;
+    letter-spacing: 0.14em;
   }
 
-  .hero-actions .btn {
-    width: 100%;
+  .hero-metric {
+    padding: 14px;
   }
 
-  .hero-arrow {
-    bottom: 276px;
-    width: 44px;
-    height: 44px;
-    font-size: 1.8rem;
-  }
-
-  .hero-bottom {
-    margin-top: -60px;
+  .section-tag,
+  .panel-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
   }
 
   .hero-metric strong {
@@ -972,5 +1022,38 @@ textarea::placeholder {
 
   .hero-metric span {
     font-size: 0.9rem;
+  }
+
+  .units-card,
+  .form,
+  .wa-card {
+    border-radius: 22px;
+  }
+
+  .units-card {
+    padding: 16px;
+  }
+
+  .units-media {
+    padding: 0 6px;
+  }
+
+  .units-image {
+    min-height: 190px;
+    border-radius: 18px;
+  }
+
+  .units-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.45rem;
+  }
+
+  .units-prev {
+    left: 0;
+  }
+
+  .units-next {
+    right: 0;
   }
 }

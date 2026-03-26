@@ -52,7 +52,6 @@
             class="hero-video"
             autoplay
             muted
-            loop
             playsinline
             preload="auto"
             poster="img/Dry.png"
@@ -109,7 +108,7 @@
           <div class="hero-content container">
             <div class="hero-copy">
               <p class="hero-kicker">Operação rápida em Santos e região</p>
-              <h1>Containers para obra,<br />estoque e refrigeração</h1>
+              <h1>Containers para obra,<br />estoque refrigerado</h1>
               <p class="hero-text">
                 Modelos dry, reefer, open top e flat rack com suporte comercial
                 direto, negociação objetiva e disponibilidade sob consulta.
@@ -215,13 +214,19 @@
         </div>
 
         <div class="units-card">
-          <button class="units-nav units-prev" id="unitsPrev" type="button" aria-label="Anterior">
-            &#8249;
-          </button>
-
           <div class="units-body">
-            <div class="units-image">
-              <img id="unitImage" alt="Foto do container" />
+            <div class="units-media">
+              <button class="units-nav units-prev" id="unitsPrev" type="button" aria-label="Anterior">
+                &#8249;
+              </button>
+
+              <div class="units-image">
+                <img id="unitImage" alt="Foto do container" />
+              </div>
+
+              <button class="units-nav units-next" id="unitsNext" type="button" aria-label="Próximo">
+                &#8250;
+              </button>
             </div>
 
             <div class="units-info">
@@ -242,10 +247,6 @@
               </div>
             </div>
           </div>
-
-          <button class="units-nav units-next" id="unitsNext" type="button" aria-label="Próximo">
-            &#8250;
-          </button>
         </div>
 
         <div class="units-dots" id="unitsDots"></div>
