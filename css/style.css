@@ -718,6 +718,62 @@ textarea::placeholder {
   text-decoration: none;
 }
 
+@media (max-height: 900px) and (min-width: 861px) {
+  .hero,
+  .hero-slides {
+    min-height: 920px;
+  }
+
+  .hero-content {
+    align-items: flex-start;
+    min-height: 920px;
+    padding: 148px 0 250px;
+  }
+
+  .hero-copy {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    max-width: 11ch;
+    font-size: clamp(3rem, 5.8vw, 5rem);
+  }
+
+  .hero-text {
+    max-width: 58ch;
+    font-size: 1.05rem;
+  }
+
+  .hero-bottom {
+    bottom: 28px;
+  }
+}
+
+@media (max-height: 760px) and (min-width: 861px) {
+  .hero,
+  .hero-slides {
+    min-height: 980px;
+  }
+
+  .hero-content {
+    min-height: 980px;
+    padding: 136px 0 280px;
+  }
+
+  .hero-metric {
+    padding: 16px 18px;
+  }
+
+  .hero-metric strong {
+    font-size: 0.95rem;
+  }
+
+  .hero-metric span {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+}
+
 @media (max-width: 1080px) {
   .hero-metrics,
   .about-panels,

@@ -314,7 +314,7 @@ if (contactForm && formMsg) {
       `Mensagem: ${message || "Não informada"}`,
     ].join("\n");
 
-    const waUrl = `https://wa.me/5513991314352?text=${encodeURIComponent(waMessage)}`;
+    const waUrl = `https://wa.me/5513996741950?text=${encodeURIComponent(waMessage)}`;
     window.open(waUrl, "_blank", "noopener");
 
     formMsg.textContent = "Abrindo o WhatsApp com a mensagem preenchida.";
