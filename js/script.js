@@ -87,6 +87,7 @@ function renderHero() {
     video.pause();
     video.currentTime = 0;
   });
+
   renderHeroDots();
   restartHeroTimer();
 }
@@ -119,13 +120,8 @@ function restartHeroTimer() {
 }
 
 if (heroSlides.length > 0) {
-  heroPrev?.addEventListener("click", () => {
-    prevHero();
-  });
-
-  heroNext?.addEventListener("click", () => {
-    nextHero();
-  });
+  heroPrev?.addEventListener("click", prevHero);
+  heroNext?.addEventListener("click", nextHero);
 
   hero?.addEventListener(
     "touchstart",
@@ -151,56 +147,151 @@ if (heroSlides.length > 0) {
   renderHero();
 }
 
-const units = [
+const allUnits = [
   {
-    badge: "Dry",
-    name: "Container Dry",
-    desc: "Modelo ISO mais usado para armazenamento e transporte de cargas secas, materiais de obra e apoio operacional.",
-    img: "img/Dry.png",
+    badge: "Apoio operacional",
+    name: "Container Escrit\u00f3rio",
+    desc: "Espa\u00e7o administrativo tempor\u00e1rio para obras, portarias e frentes operacionais.",
+    img: "img/Escritorio.png",
     specs: [
-      { k: "Tamanhos", v: "20' / 40'" },
-      { k: "Aplicação", v: "Cargas secas" },
-      { k: "Uso", v: "Obras e indústrias" },
-      { k: "Destaque", v: "Versátil e seguro" },
+      { k: "Tamanhos", v: "20' / Modular" },
+      { k: "Estrutura", v: "Adaptado" },
+      { k: "Aplica\u00e7\u00e3o", v: "Administra\u00e7\u00e3o" },
+      { k: "Uso", v: "Obras e apoio" },
     ],
   },
   {
-    badge: "Reefer",
+    badge: "Apoio operacional",
+    name: "Container Vesti\u00e1rio",
+    desc: "Estrutura funcional para troca de uniforme e organiza\u00e7\u00e3o da equipe no canteiro.",
+    img: "img/Vestiario.png",
+    specs: [
+      { k: "Tamanhos", v: "20' / Modular" },
+      { k: "Estrutura", v: "Adaptado" },
+      { k: "Aplica\u00e7\u00e3o", v: "Equipe operacional" },
+      { k: "Uso", v: "Apoio em obra" },
+    ],
+  },
+  {
+    badge: "Apoio operacional",
+    name: "Container Sanit\u00e1rio",
+    desc: "Solu\u00e7\u00e3o pr\u00e1tica para banheiros em obras, eventos e opera\u00e7\u00f5es remotas.",
+    specs: [
+      { k: "Tamanhos", v: "20' / Modular" },
+      { k: "Estrutura", v: "Hidrossanit\u00e1rio" },
+      { k: "Aplica\u00e7\u00e3o", v: "Obras e eventos" },
+      { k: "Uso", v: "Banheiro modular" },
+    ],
+  },
+  {
+    badge: "Apoio operacional",
+    name: "Container Refeit\u00f3rio",
+    desc: "Ambiente preparado para refei\u00e7\u00f5es com conforto e apoio di\u00e1rio \u00e0 equipe.",
+    specs: [
+      { k: "Tamanhos", v: "20' / Modular" },
+      { k: "Estrutura", v: "Adaptado" },
+      { k: "Aplica\u00e7\u00e3o", v: "Viv\u00eancia" },
+      { k: "Uso", v: "Refei\u00e7\u00f5es" },
+    ],
+  },
+  {
+    badge: "Apoio operacional",
+    name: "Container Almoxarifado",
+    desc: "Armazenamento seguro para ferramentas, EPIs e materiais de uso frequente.",
+    specs: [
+      { k: "Tamanhos", v: "20' / 40'" },
+      { k: "Estrutura", v: "Fechado" },
+      { k: "Aplica\u00e7\u00e3o", v: "Materiais e EPIs" },
+      { k: "Uso", v: "Estoque seguro" },
+    ],
+  },
+  {
+    badge: "Projeto especial",
+    name: "Container Modular / Projeto Especial",
+    desc: "Configura\u00e7\u00f5es sob medida para layouts personalizados e opera\u00e7\u00f5es espec\u00edficas.",
+    img: "img/Projeto especial.png",
+    specs: [
+      { k: "Tamanhos", v: "Sob medida" },
+      { k: "Estrutura", v: "Personalizada" },
+      { k: "Aplica\u00e7\u00e3o", v: "Projetos especiais" },
+      { k: "Uso", v: "Opera\u00e7\u00e3o dedicada" },
+    ],
+  },
+  {
+    badge: "Mar\u00edtimo",
+    name: "Container Dry 20'",
+    desc: "Modelo compacto e vers\u00e1til para armazenamento e transporte de cargas secas.",
+    img: "img/Dry.png",
+    specs: [
+      { k: "Tamanhos", v: "20'" },
+      { k: "Estrutura", v: "Fechado" },
+      { k: "Aplica\u00e7\u00e3o", v: "Carga seca" },
+      { k: "Uso", v: "Armazenagem" },
+    ],
+  },
+  {
+    badge: "Mar\u00edtimo",
+    name: "Container Dry 40'",
+    desc: "Maior capacidade interna para estoque, apoio log\u00edstico e opera\u00e7\u00f5es industriais.",
+    img: "img/Dry.png",
+    specs: [
+      { k: "Tamanhos", v: "40'" },
+      { k: "Estrutura", v: "Fechado" },
+      { k: "Aplica\u00e7\u00e3o", v: "Carga seca" },
+      { k: "Uso", v: "Maior capacidade" },
+    ],
+  },
+  {
+    badge: "Mar\u00edtimo",
+    name: "Container High Cube 40'",
+    desc: "Vers\u00e3o com p\u00e9-direito ampliado para cargas volumosas e adapta\u00e7\u00f5es especiais.",
+    img: "img/Dry.png",
+    specs: [
+      { k: "Tamanhos", v: "40' HC" },
+      { k: "Estrutura", v: "Maior altura" },
+      { k: "Aplica\u00e7\u00e3o", v: "Carga volumosa" },
+      { k: "Uso", v: "Estoque e adapta\u00e7\u00e3o" },
+    ],
+  },
+  {
+    badge: "Refrigerado",
     name: "Container Reefer",
-    desc: "Container refrigerado para alimentos, bebidas e cargas sensíveis que exigem controle de temperatura.",
+    desc: "Container refrigerado para produtos que exigem controle de temperatura.",
     img: "img/Reefer.png",
     specs: [
       { k: "Tamanhos", v: "20' / 40'" },
-      { k: "Diferencial", v: "Refrigeração ativa" },
-      { k: "Aplicação", v: "Perecíveis" },
-      { k: "Uso", v: "Câmara fria móvel" },
+      { k: "Estrutura", v: "Refrigera\u00e7\u00e3o ativa" },
+      { k: "Aplica\u00e7\u00e3o", v: "Perec\u00edveis" },
+      { k: "Uso", v: "C\u00e2mara fria" },
     ],
   },
   {
-    badge: "Open Top",
+    badge: "Carga especial",
     name: "Container Open Top",
-    desc: "Estrutura indicada para cargas altas ou carregamento superior com ponte rolante, guindaste ou içamento técnico.",
+    desc: "Indicado para cargas altas ou i\u00e7amento superior com mais flexibilidade operacional.",
     img: "img/OpenTop.png",
     specs: [
       { k: "Tamanhos", v: "20' / 40'" },
-      { k: "Acesso", v: "Abertura superior" },
-      { k: "Aplicação", v: "Carga excedente" },
-      { k: "Uso", v: "Projetos industriais" },
+      { k: "Estrutura", v: "Abertura superior" },
+      { k: "Aplica\u00e7\u00e3o", v: "Carga excedente" },
+      { k: "Uso", v: "I\u00e7amento t\u00e9cnico" },
     ],
   },
   {
-    badge: "Flat Rack",
+    badge: "Carga especial",
     name: "Container Flat Rack",
-    desc: "Ideal para máquinas, equipamentos e cargas com grandes dimensões que exigem estrutura aberta e reforçada.",
+    desc: "Estrutura aberta e refor\u00e7ada para m\u00e1quinas, equipamentos e cargas de grande porte.",
     img: "img/FlatRack.png",
     specs: [
       { k: "Tamanhos", v: "20' / 40'" },
       { k: "Estrutura", v: "Laterais abertas" },
-      { k: "Aplicação", v: "Carga especial" },
-      { k: "Uso", v: "Operação pesada" },
+      { k: "Aplica\u00e7\u00e3o", v: "Carga especial" },
+      { k: "Uso", v: "Opera\u00e7\u00e3o pesada" },
     ],
   },
 ];
+
+const units = allUnits.filter((unit) => Boolean(unit.img));
 
 let unitIndex = 0;
 
@@ -209,9 +300,22 @@ const unitName = document.getElementById("unitName");
 const unitDesc = document.getElementById("unitDesc");
 const unitImage = document.getElementById("unitImage");
 const unitSpecs = document.getElementById("unitSpecs");
+const unitAvailability = document.getElementById("unitAvailability");
+const unitQuote = document.getElementById("unitQuote");
 const prevBtn = document.getElementById("unitsPrev");
 const nextBtn = document.getElementById("unitsNext");
 const dotsEl = document.getElementById("unitsDots");
+const unitsCard = document.querySelector(".units-card");
+
+function createQuoteUrl(unitName) {
+  const message = `Ol\u00e1, gostaria de solicitar uma cota\u00e7\u00e3o para ${unitName}.`;
+  return `https://wa.me/5513996741950?text=${encodeURIComponent(message)}`;
+}
+
+function createAvailabilityUrl(unitName) {
+  const message = `Ol\u00e1, quero verificar a disponibilidade do ${unitName}.`;
+  return `https://wa.me/5513996741950?text=${encodeURIComponent(message)}`;
+}
 
 function renderUnitDots() {
   if (!dotsEl) return;
@@ -232,7 +336,7 @@ function renderUnitDots() {
 
 function renderUnit() {
   const unit = units[unitIndex];
-  if (!unitBadge || !unitName || !unitDesc || !unitImage || !unitSpecs) return;
+  if (!unit || !unitBadge || !unitName || !unitDesc || !unitImage || !unitSpecs) return;
 
   unitBadge.textContent = unit.badge;
   unitName.textContent = unit.name;
@@ -250,6 +354,14 @@ function renderUnit() {
     )
     .join("");
 
+  if (unitAvailability) {
+    unitAvailability.href = createAvailabilityUrl(unit.name);
+  }
+
+  if (unitQuote) {
+    unitQuote.href = createQuoteUrl(unit.name);
+  }
+
   renderUnitDots();
 }
 
@@ -266,26 +378,25 @@ function prevUnit() {
 prevBtn?.addEventListener("click", prevUnit);
 nextBtn?.addEventListener("click", nextUnit);
 
-const card = document.querySelector(".units-card");
-let startX = 0;
+let unitTouchStartX = 0;
 
-if (card) {
-  card.addEventListener(
+if (unitsCard) {
+  unitsCard.addEventListener(
     "touchstart",
     (event) => {
-      startX = event.touches[0].clientX;
+      unitTouchStartX = event.touches[0].clientX;
     },
     { passive: true }
   );
 
-  card.addEventListener("touchend", (event) => {
+  unitsCard.addEventListener("touchend", (event) => {
     const endX = event.changedTouches[0].clientX;
-    const diff = endX - startX;
+    const diffX = endX - unitTouchStartX;
 
-    if (Math.abs(diff) > 45) {
-      if (diff < 0) nextUnit();
-      else prevUnit();
-    }
+    if (Math.abs(diffX) < 45) return;
+
+    if (diffX < 0) nextUnit();
+    else prevUnit();
   });
 }
 
@@ -305,13 +416,13 @@ if (contactForm && formMsg) {
     const message = contactForm.elements.namedItem("message")?.value.trim() || "";
 
     const waMessage = [
-      "Olá! Vim pelo site da Santiago e quero solicitar atendimento.",
+      "Ol\u00e1! Vim pelo site da Santiago e quero solicitar atendimento.",
       "",
       `Nome: ${name}`,
       `E-mail: ${email}`,
-      `Telefone: ${phone || "Não informado"}`,
-      `Assunto: ${subject || "Não informado"}`,
-      `Mensagem: ${message || "Não informada"}`,
+      `Telefone: ${phone || "N\u00e3o informado"}`,
+      `Assunto: ${subject || "N\u00e3o informado"}`,
+      `Mensagem: ${message || "N\u00e3o informada"}`,
     ].join("\n");
 
     const waUrl = `https://wa.me/5513996741950?text=${encodeURIComponent(waMessage)}`;
