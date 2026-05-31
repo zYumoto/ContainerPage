@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santiago Cargas | Containers e Solu&ccedil;&otilde;es Log&iacute;sticas</title>
+  <meta
+    name="description"
+    content="Loca&ccedil;&atilde;o, venda e personaliza&ccedil;&atilde;o de containers para obras, ind&uacute;strias e opera&ccedil;&otilde;es log&iacute;sticas."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Oswald:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" type="image/png" href="img/logo-black.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#topo" aria-label="Santiago Cargas">
+      <img src="img/logo-white.png" alt="Santiago Cargas" class="brand-logo" />
+    </a>
+
+    <nav class="nav" id="navMenu" aria-label="Menu principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#unidades">Containers</a>
+      <a href="#contato">Contato</a>
+      <a class="nav-btn" href="#contato">Fazer or&ccedil;amento</a>
+    </nav>
+
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      type="button"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="navMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="topo" aria-label="Destaque principal">
+      <div class="hero-slides" id="heroSlides">
+        <article class="hero-slide is-active" data-tone="light">
+          <video
+            class="hero-video"
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+            poster="img/Dry.png"
+          >
+            <source src="img/Video Front.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-overlay"></div>
+          <div class="hero-content container">
+            <div class="hero-copy">
+              <p class="hero-kicker">Loca&ccedil;&atilde;o, venda e opera&ccedil;&atilde;o log&iacute;stica</p>
+              <h1>Containers vazios<br />solu&ccedil;&otilde;es completas</h1>
+              <p class="hero-text">
+                Na Santiago Cargas, nosso compromisso &eacute; simples: velocidade,
+                estrutura e efici&ecirc;ncia em cada entrega. Conte com a nossa equipe
+                para loca&ccedil;&atilde;o, venda e atendimento t&eacute;cnico sob medida.
+              </p>
+              <div class="hero-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://wa.me/5513996741950?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento%20de%20container."
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Fazer or&ccedil;amento
+                </a>
+                <a class="btn btn-ghost" href="#unidades">Ver containers</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" data-tone="light">
+          <img class="hero-image" src="img/FlatRack.png" alt="Container Flat Rack" />
+          <div class="hero-overlay"></div>
+          <div class="hero-content container">
+            <div class="hero-copy">
+              <p class="hero-kicker">Estrutura para cargas especiais</p>
+              <h1>Projetos industriais<br />sem improviso</h1>
+              <p class="hero-text">
+                Atendemos opera&ccedil;&otilde;es que exigem robustez, agilidade e orienta&ccedil;&atilde;o
+                t&eacute;cnica para definir o container ideal em cada cen&aacute;rio.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#contato">Solicitar contato</a>
+                <a class="btn btn-ghost" href="#sobre">Conhecer a empresa</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" data-tone="light">
+          <img class="hero-image" src="img/Reefer.png" alt="Container Reefer" />
+          <div class="hero-overlay"></div>
+          <div class="hero-content container">
+            <div class="hero-copy">
+              <p class="hero-kicker">Opera&ccedil;&atilde;o r&aacute;pida em Santos e regi&atilde;o</p>
+              <h1>Containers para obra,<br />estoque refrigerado</h1>
+              <p class="hero-text">
+                Modelos dry, reefer, open top e flat rack com suporte comercial
+                direto, negocia&ccedil;&atilde;o objetiva e disponibilidade sob consulta.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#unidades">Explorar modelos</a>
+                <a
+                  class="btn btn-ghost"
+                  href="https://www.instagram.com/santiago_locacao/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button class="hero-arrow hero-arrow-left" id="heroPrev" type="button" aria-label="Slide anterior">
+        &#8249;
+      </button>
+      <button class="hero-arrow hero-arrow-right" id="heroNext" type="button" aria-label="Pr&oacute;ximo slide">
+        &#8250;
+      </button>
+
+      <div class="hero-bottom container">
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <strong>Atendimento consultivo</strong>
+            <span>Entendemos a opera&ccedil;&atilde;o antes de indicar o modelo.</span>
+          </div>
+          <div class="hero-metric">
+            <strong>Loca&ccedil;&atilde;o e venda</strong>
+            <span>Solu&ccedil;&otilde;es para uso imediato ou projeto personalizado.</span>
+          </div>
+          <div class="hero-metric">
+            <strong>Opera&ccedil;&atilde;o regional</strong>
+            <span>Base em Santos com foco em agilidade e suporte local.</span>
+          </div>
+        </div>
+        <div class="hero-dots" id="heroDots" aria-label="Indicadores de slide"></div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="sobre">
+      <div class="container intro-grid">
+        <div class="intro-lead">
+          <p class="section-tag">Sobre a Santiago</p>
+          <h2>Visual forte, opera&ccedil;&atilde;o s&eacute;ria e atendimento direto</h2>
+        </div>
+        <div class="intro-text">
+          <p>
+            Trabalhamos com containers para armazenamento, apoio operacional,
+            log&iacute;stica e projetos especiais. A proposta &eacute; simples: reduzir atrito
+            comercial, acelerar a negocia&ccedil;&atilde;o e entregar uma solu&ccedil;&atilde;o adequada ao
+            contexto real da sua opera&ccedil;&atilde;o.
+          </p>
+        </div>
+      </div>
+
+      <div class="container about-panels">
+        <article class="about-panel accent-panel">
+          <p class="panel-label">Miss&atilde;o</p>
+          <h3>Resolver a demanda com rapidez e clareza.</h3>
+          <p>
+            Cada atendimento parte da necessidade do cliente, n&atilde;o de uma tabela
+            gen&eacute;rica. Isso evita retrabalho e melhora a entrega.
+          </p>
+        </article>
+        <article class="about-panel dark-panel">
+          <p class="panel-label">Vis&atilde;o</p>
+          <h3>Ser refer&ecirc;ncia regional em containers para uso operacional.</h3>
+          <p>
+            Foco em relacionamento duradouro, resposta r&aacute;pida e execu&ccedil;&atilde;o
+            consistente para empresas e obras em expans&atilde;o.
+          </p>
+        </article>
+        <article class="about-panel light-panel">
+          <p class="panel-label">Valores</p>
+          <ul class="values-list">
+            <li>Compromisso com prazo e disponibilidade</li>
+            <li>Transpar&ecirc;ncia comercial</li>
+            <li>Seguran&ccedil;a na opera&ccedil;&atilde;o</li>
+            <li>Qualidade no atendimento</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="unidades">
+      <div class="container units">
+        <div class="section-head">
+          <div>
+            <p class="section-tag">Modelos dispon&iacute;veis</p>
+            <h2>Containers para diferentes aplica&ccedil;&otilde;es</h2>
+          </div>
+          <p class="section-copy">
+            Veja os principais modelos para apoio operacional, armazenamento,
+            projetos especiais e aplica&ccedil;&otilde;es mar&iacute;timas.
+          </p>
+        </div>
+
+        <div class="units-card">
+          <div class="units-body">
+            <div class="units-media">
+              <button class="units-nav units-prev" id="unitsPrev" type="button" aria-label="Anterior">
+                &#8249;
+              </button>
+
+              <div class="units-image">
+                <img id="unitImage" alt="Foto do container" />
+              </div>
+
+              <button class="units-nav units-next" id="unitsNext" type="button" aria-label="Pr&oacute;ximo">
+                &#8250;
+              </button>
+            </div>
+
+            <div class="units-info">
+              <div class="units-badge" id="unitBadge">TIPO</div>
+              <h3 id="unitName">Container</h3>
+              <p id="unitDesc">Descri&ccedil;&atilde;o</p>
+              <div class="units-specs" id="unitSpecs"></div>
+              <div class="units-actions">
+                <a
+                  class="btn btn-primary"
+                  id="unitAvailability"
+                  href="https://wa.me/5513996741950"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Ver disponibilidade
+                </a>
+                <a
+                  class="btn btn-ghost-dark"
+                  id="unitQuote"
+                  href="https://wa.me/5513996741950"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Solicitar cota&ccedil;&atilde;o
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="units-dots" id="unitsDots"></div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="contato">
+      <div class="container contact-shell">
+        <div class="contact-copy">
+          <p class="section-tag">Contato</p>
+          <h2>Fale com a Santiago</h2>
+          <p>
+            Envie os dados pelo formul&aacute;rio ou abra a conversa no WhatsApp com uma
+            mensagem j&aacute; preenchida.
+          </p>
+
+          <div class="contact-points">
+            <div>
+              <span>N&uacute;mero</span>
+              <strong>+55 13 99674-1950</strong>
+            </div>
+            <div>
+              <span>E-mail</span>
+              <strong>
+                <a href="mailto:Administrativo@santiago.log.br">Administrativo@santiago.log.br</a>
+              </strong>
+            </div>
+            <div>
+              <span>Site</span>
+              <strong>
+                <a href="https://www.santiagolocacao.com.br" target="_blank" rel="noopener">
+                  www.santiagolocacao.com.br
+                </a>
+              </strong>
+            </div>
+            <div>
+              <span>Atendimento</span>
+              <strong>Seg a Sex, 08:00 &agrave;s 18:00</strong>
+            </div>
+            <div>
+              <span>Instagram</span>
+              <strong>@santiago_locacao</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <form class="form" id="contactForm">
+            <div class="grid">
+              <div class="field">
+                <label for="contactName">Nome</label>
+                <input type="text" id="contactName" name="name" placeholder="Seu nome" required />
+              </div>
+              <div class="field">
+                <label for="contactEmail">E-mail</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  placeholder="seuemail@empresa.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label for="contactPhone">Telefone</label>
+                <input type="tel" id="contactPhone" name="phone" placeholder="(13) 9xxxx-xxxx" />
+              </div>
+              <div class="field">
+                <label for="contactSubject">Assunto</label>
+                <input
+                  type="text"
+                  id="contactSubject"
+                  name="subject"
+                  placeholder="Loca&ccedil;&atilde;o, venda ou personaliza&ccedil;&atilde;o"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="contactMessage">Mensagem</label>
+              <textarea
+                id="contactMessage"
+                name="message"
+                placeholder="Descreva o tipo de container, tamanho desejado e prazo estimado."
+              ></textarea>
+            </div>
+
+            <button class="btn btn-primary btn-full" type="submit">Enviar solicita&ccedil;&atilde;o</button>
+            <div class="form-msg" id="formMsg"></div>
+          </form>
+
+          <aside class="wa-card" aria-label="Atendimento via WhatsApp">
+            <div class="wa-badge">WhatsApp</div>
+            <h3>Atendimento r&aacute;pido</h3>
+            <p>
+              Clique para abrir a conversa com a mensagem inicial pronta. Voc&ecirc;
+              pode ajustar o texto antes de enviar.
+            </p>
+
+            <a
+              class="wa-btn"
+              href="https://wa.me/5513996741950?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santiago%20e%20quero%20cotar%20um%20container."
+              target="_blank"
+              rel="noopener"
+            >
+              Chamar no WhatsApp
+            </a>
+
+            <a
+              class="wa-link-block"
+              href="https://www.instagram.com/santiago_locacao/"
+              target="_blank"
+              rel="noopener"
+            >
+              Ver Instagram
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Santiago Cargas. Todos os direitos reservados.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
