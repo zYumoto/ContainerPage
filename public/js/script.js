@@ -221,7 +221,7 @@ const allUnits = [
     badge: "Mar\u00edtimo",
     name: "Container Dry 20'",
     desc: "Modelo compacto e vers\u00e1til para armazenamento e transporte de cargas secas.",
-    img: "img/Dry.png",
+    img: "img/Dry 20dv.png",
     specs: [
       { k: "Tamanhos", v: "20'" },
       { k: "Estrutura", v: "Fechado" },
@@ -245,7 +245,7 @@ const allUnits = [
     badge: "Mar\u00edtimo",
     name: "Container High Cube 40'",
     desc: "Vers\u00e3o com p\u00e9-direito ampliado para cargas volumosas e adapta\u00e7\u00f5es especiais.",
-    img: "img/Dry.png",
+    img: "img/High Cube.png",
     specs: [
       { k: "Tamanhos", v: "40' HC" },
       { k: "Estrutura", v: "Maior altura" },
